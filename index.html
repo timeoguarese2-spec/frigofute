@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frigo Futé - Ne gaspille plus, cuisine futé !</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #8DCB68;
+            --dark-green: #1F4A36;
+            --orange: #F4A259;
+            --beige: #FFF5E7;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--beige);
+            color: var(--dark-green);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* NAVIGATION */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--dark-green);
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+
+        .logo-container img {
+            height: 50px;
+            margin-right: 12px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--dark-green);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--primary-green); }
+
+        .btn-download {
+            background: var(--orange);
+            color: white !important;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(244, 162, 89, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .btn-download:hover { transform: translateY(-2px); }
+
+        /* HERO SECTION */
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 80px 8%;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-text { flex: 1; }
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span { color: var(--primary-green); }
+        .hero-text p { font-size: 1.2rem; margin-bottom: 35px; opacity: 0.9; }
+
+        .hero-image { flex: 1; }
+        .hero-image img {
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* SECTION LA PROMESSE */
+        .promises {
+            background: var(--white);
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .promises h2 { font-size: 2.5rem; margin-bottom: 50px; }
+
+        .promise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .promise-card {
+            padding: 40px;
+            border-radius: 20px;
+            background: var(--beige);
+            transition: transform 0.3s;
+        }
+
+        .promise-card:hover { transform: translateY(-10px); }
+        .promise-card .icon { font-size: 3rem; margin-bottom: 20px; display: block; }
+
+        /* SECTION APP EN ACTION */
+        .app-section {
+            display: flex;
+            align-items: center;
+            padding: 100px 8%;
+            gap: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .app-visual { flex: 1; text-align: center; }
+        .app-visual img {
+            width: 280px;
+            border-radius: 40px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .app-content { flex: 1; }
+        .app-content h2 { font-size: 2.5rem; margin-bottom: 25px; }
+
+        /* SECTION TÉMOIGNAGES */
+        .testimonials {
+            padding: 100px 8%;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .testimonials h2 { font-size: 2.5rem; margin-bottom: 60px; }
+
+        .testimonial-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .testimonial-card {
+            background: var(--beige);
+            padding: 35px;
+            border-radius: 25px;
+            width: 300px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+        }
+
+        .testimonial-card img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card span { font-weight: 700; color: var(--orange); }
+
+        /* FOOTER & RÉSEAUX SOCIAUX */
+        footer {
+            background: var(--dark-green);
+            color: var(--white);
+            padding: 60px 8% 30px;
+            text-align: center;
+        }
+
+        .footer-logo { font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; display: block; }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon img {
+            width: 32px;
+            height: 32px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 8px;
+        }
+
+        .social-icon span { font-size: 0.8rem; opacity: 0.8; font-weight: 600; }
+
+        .social-icon:hover { transform: translateY(-5px); }
+        .social-icon:hover span { color: var(--primary-green); opacity: 1; }
+
+        .footer-copy { 
+            font-size: 0.8rem; 
+            opacity: 0.5; 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+            padding-top: 20px; 
+            margin-top: 40px;
+        }
+
+        @media (max-width: 900px) {
+            .hero, .app-section { flex-direction: column; text-align: center; }
+            nav { display: none; }
+            .hero-text h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo-container">
+            <img src="logo.png" alt="Logo Frigo Futé">
+            Frigo Futé
+        </a>
+        <nav>
+            <a href="#concept">Concept</a>
+            <a href="#app">L'App</a>
+            <a href="#commu">Communauté</a>
+        </nav>
+        <a href="#" class="btn-download">Télécharger l'app</a>
+    </header>
+
+    <section class="hero" id="concept">
+        <div class="hero-text">
+            <h1>Cuisinez malin, <br><span>sauvez la planète.</span></h1>
+            <p>L'application qui donne une seconde vie à votre frigo et réduit votre empreinte écologique avec le sourire.</p>
+            <a href="#" class="btn-download" style="padding: 15px 40px;">Commencer l'aventure</a>
+        </div>
+        <div class="hero-image">
+            <img src="frigo.png" alt="Frigo ouvert Frigo Futé">
+        </div>
+    </section>
+
+    <section class="promises">
+        <h2>La Promesse</h2>
+        <div class="promise-grid">
+            <div class="promise-card">
+                <span class="icon">🍃</span>
+                <h3>Stop au Gaspillage</h3>
+                <p>Suivez vos dates de péremption et recevez des alertes intelligentes et bienveillantes.</p>
+            </div>
+            <div class="promise-card">
+                <span class="icon">🍳</span>
+                <h3>Recettes Magiques</h3>
+                <p>Trouvez l'inspiration selon ce qu'il vous reste : tomates, carottes, brocolis...</p>
+            </div>
+            <div class="promise-card">
+                <span class="icon">📊</span>
+                <h3>Impact Positif</h3>
+                <p>Mesurez les économies réalisées et les kilos de CO2 évités chaque mois.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="app-section" id="app">
+        <div class="app-visual">
+            <img src="app.png" alt="Interface application Frigo Futé">
+        </div>
+        <div class="app-content">
+            <h2>L'App en Action</h2>
+            <p>Ne culpabilisez plus, agissez ! Notre IA vous propose des recettes savoureuses pour ne plus jamais rien jeter.</p>
+            <p>Scannez vos produits, gérez vos stocks en un clic et recevez des conseils personnalisés pour une cuisine zéro déchet.</p>
+        </div>
+    </section>
+
+    <section class="testimonials" id="commu">
+        <h2>Ils cuisinent déjà futé</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <img src="person1.jpg" alt="Marie">
+                <p>"Je jette tellement moins de nourriture maintenant. L'app est super simple !"</p>
+                <span>Marie, Étudiante</span>
+            </div>
+            <div class="testimonial-card">
+                <img src="person2.jpg" alt="David">
+                <p>"Génial pour organiser les repas de toute la famille sans rien gaspiller."</p>
+                <span>David, Père de famille</span>
+            </div>
+            <div class="testimonial-card">
+                <img src="person3.jpg" alt="Sophie">
+                <p>"Les alertes de péremption m'ont sauvé la vie plus d'une fois !"</p>
+                <span>Sophie, Éco-responsable</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span class="footer-logo">Frigo Futé</span>
+        <p>Ne gaspille plus, cuisine futé !</p>
+
+        <div class="social-links">
+            <a href="https://instagram.com/frigofute" target="_blank" class="social-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+                <span>Instagram</span>
+            </a>
+            <a href="https://tiktok.com/@frigofute" target="_blank" class="social-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
+                <span>TikTok</span>
+            </a>
+            <a href="https://facebook.com/frigofute" target="_blank" class="social-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+                <span>Facebook</span>
+            </a>
+            <a href="https://linkedin.com/company/frigofute" target="_blank" class="social-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn">
+                <span>LinkedIn</span>
+            </a>
+        </div>
+
+        <p class="footer-copy">© 2026 Frigo Futé. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
